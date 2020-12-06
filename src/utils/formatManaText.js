@@ -17,7 +17,5 @@ export default (text) => {
       `)
     })
   }
-  console.log('text', text);
-  console.log('formatted', formatted);
   return formatted
 }

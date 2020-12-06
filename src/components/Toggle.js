@@ -17,7 +17,7 @@ export default ({ theme }) => {
 
   const animation = css`
     &:hover {
-      animation: ${theme === 'day' ? spin : ''} 5s ease infinite;
+      animation: ${theme === 'day' ? spin : ''} 5s ease forwards;
       color: var(--accent-color)
     }
   `
