@@ -1,0 +1,55 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+:root {
+    --day-background-color: #f6f5f4;
+    --day-accent-color: #f2e9e4;
+    --day-text-color: #2d3341;
+    --night-background-color: rgb(59, 66, 82);
+    --night-accent-color: #434c5e;
+    --night-text-color: #f6f5f4;
+    --accent-color: #f7931e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: var(--background-color);
+    transition: background-color 0.5s ease;
+    color: var(--text-color);
+    font-size: 2rem;
+}
+
+.container {
+    height: 100vh;
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+}
+
+p {
+    font-size: 2.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.error {
+    width: 100%;
+    color: red;
+    background-color: rgba(255, 180, 180, 0.8);
+    border-radius: 4px;
+    padding: 2rem;
+    text-align: center;
+}
