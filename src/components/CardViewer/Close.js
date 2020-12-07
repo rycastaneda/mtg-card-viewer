@@ -6,7 +6,7 @@ const closeStyle = cx(css`
   left: 0;
   width: 100%;
   right: 0;
-  bottom: 70px;
+  bottom: 0;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

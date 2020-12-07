@@ -16,6 +16,7 @@ export default ({ theme }) => {
   const icon = `ms-dfc-${theme}`
 
   const animation = css`
+    
     &:hover {
       animation: ${theme === 'day' ? spin : ''} 5s ease forwards;
       color: var(--accent-color)

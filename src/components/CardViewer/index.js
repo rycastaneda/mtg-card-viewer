@@ -41,6 +41,9 @@ const cardBody = cx(css`
   z-index: 100;
   opacity: 0;
   width: 90%;
+  overflow: auto;
+  height: 80%;
+  
   grid-template-columns: 1fr;
   @media (min-width: 768px) {
     display: grid;
