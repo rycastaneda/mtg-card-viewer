@@ -30,10 +30,16 @@ const slider = cx(css`
 const mtgLogo = cx(css`
   transform: translateY(100%);
   opacity: 0;
+  width: 100%;
+  @media (min-width: 768px) {
+    width: auto;
+    height: auto;
+    border-radius: 2rem;
+    width: 915px;
+  }
 `)
 const IntroLoader = () => {
   useEffect(() => {
-    console.log('hi');
     const tl = gsap.timeline({ defaults: { ease: "power1.out" } });
 
     tl.to("#logo", { y: "0%", opacity: 1, duration: 1, stagger: 0.25 });

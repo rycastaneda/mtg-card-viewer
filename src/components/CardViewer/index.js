@@ -26,6 +26,8 @@ function useOutsideAlerter(ref, callback) {
   }, [ref, callback]);
 }
 
+
+
 const cardBody = cx(css`
   margin: 10% auto;
   border-radius: 10px;
@@ -77,8 +79,15 @@ const Card = ({
   text, flavor, power, toughness,
   artist, onClose
 }) => {
+  const handleClose = () => {
+    const tl = gsap.timeline({ defaults: { ease: "power1.out" } });
+    tl.to("#card", { opacity: 0, duration: 0.2 });
+    tl.to("#card-fade", { opacity: 0, duration: 0.3 });
+
+    setTimeout(onClose, 1000)
+  }
   const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef, onClose);
+  useOutsideAlerter(wrapperRef, handleClose);
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power1.out" } });
@@ -89,9 +98,9 @@ const Card = ({
       tl.to("#card", { opacity: 0, duration: 0.2 });
     }
   }, [])
-  
+
   return (
-    <div className={fade} id="card-fade" onBlur={onClose}>
+    <div className={fade} id="card-fade" onBlur={handleClose}>
       <div className={cardBody} id="card" ref={wrapperRef}>
         <Image imageUrl={imageUrl} />
         <Name name={name} manaCost={manaCost} />
@@ -99,7 +108,7 @@ const Card = ({
         <Flavor {...{ text, type, flavor, power, toughness }}/>
         <div>Illustrated by: {artist}</div>
       </div>
-      <Close onClose={onClose}/>
+      <Close onClose={handleClose}/>
     </div>
   );
 };

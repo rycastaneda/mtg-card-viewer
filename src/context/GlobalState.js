@@ -45,6 +45,7 @@ const GlobalState = props => {
     <MagicContext.Provider
       value={{
         cards: cardsState.cards,
+        status: cardsState.status,
         cardDetail: cardsState.cardDetail,
         fetchCards,
         viewCard,

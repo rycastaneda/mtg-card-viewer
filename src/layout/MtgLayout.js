@@ -18,7 +18,7 @@ const MtgLayout = ({ children }) => {
         {children}
       </div>
 
-      {/* <IntroLoader /> */}
+      <IntroLoader />
     </Layout>
   );
 };

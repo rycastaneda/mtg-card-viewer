@@ -17,7 +17,7 @@ const imgClass = cx(css`
 }
 `)
 
-const Image = ({ imageUrl = BackImage, previewMode, onClick }) => (
+const Image = ({ imageUrl = BackImage }) => (
   <div className={cardImage}>
     <img src={imageUrl} className={imgClass} alt="Card Illustration"></img>
   </div>

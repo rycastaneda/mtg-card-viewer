@@ -21,9 +21,10 @@ const Home = () => {
   useEffect(() => {
     document.documentElement.style.setProperty('--background-color', themes[theme].background);
     document.documentElement.style.setProperty('--theme-accent-color', themes[theme].accent);
+    document.documentElement.style.setProperty('--gradient-color', themes[theme].gradient);
     document.documentElement.style.setProperty('--text-color', themes[theme].text);
   }, [theme])
-
+  
   const renderLoad = (status, cardLength) => {
     return (status === 'fetching' && !cardLength) && <Loader />
   }
@@ -37,7 +38,16 @@ const Home = () => {
         <Fragment>
           <CardLists cards={context.cards} onCardClick={(card) => context.viewCard(card)} />
           <div className="text-center">
-            <Button onClick={() => context.fetchRandomCard()}>Show Random Card</Button>
+          <Button onClick={() => context.fetchRandomCard()}>
+            {context.status === 'randoming' ?  
+              (
+              <Fragment>
+                <Loader width="15px"></Loader>
+                <span>&nbsp;Loading</span>
+              </Fragment>
+              ) :
+              'Show Random Card'}
+          </Button>
           </div>
         </Fragment> : null
       }

@@ -2,11 +2,6 @@ import React from 'react';
 import { css, cx } from "emotion";
 import BackImage from '../../assets/back.jpg';
 
-const cardImage = cx(css`
-  @media (min-width: 768px) {
-    grid-row: 1/6;
-  }
-`)
 
 const preview = cx(css`
   opacity: 0;
@@ -26,8 +21,8 @@ const imgClass = cx(css`
   object-fit: contain;
 `)
 
-const CardPreview = ({ imageUrl = BackImage, previewMode, onClick }) => (
-  <div className={previewMode ? `preview ` + preview : cardImage} onClick={preview ? onClick : null}>
+const CardPreview = ({ imageUrl = BackImage, onClick }) => (
+  <div className={`preview ` + preview} onClick={onClick}>
     <img src={imageUrl} className={imgClass} alt="Card Illustration"></img>
   </div>
 )

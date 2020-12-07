@@ -8,21 +8,31 @@ const listClass = cx(css`
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-gap: 2rem;
   overflow-y: hidden;
-  margin: 9rem auto 2rem;
-  padding: 3rem;
-  height: 80vh;
+  padding: 5rem;
   width: auto;
   background: var(--theme-accent-color);
-  box-shadow:         inset 0 0 10px var(--theme-accent-color);
+  box-shadow: inset 0 0 10px var(--theme-accent-color);
   @media (min-width: 991px) {
     height: auto;
-    border-radius: 2rem;
-    width: 915px;
   }
   &:hover {
     overflow-y:auto;
   }
 
+  > div {
+    width: 100%;
+  }
+`)
+
+const wrapper = cx(css`
+  height: 900px;
+  overflow-y: auto;
+  margin-bottom: 4rem;
+  @media (min-width: 991px) {
+    width: 915px;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+  }
   ::-webkit-scrollbar
   {
   width: 2px;
@@ -30,16 +40,10 @@ const listClass = cx(css`
 
   ::-webkit-scrollbar-thumb
   {
-  background-color: var(--accent-color);
-  -webkit-box-shadow: inset 0 0 6px var(--accent-color);
-  }
-
-
-  > div {
-    width: 100%;
+  background-color: var(--background-color);
+  -webkit-box-shadow: inset 0 0 6px var(--background-color);
   }
 `)
-
 
 
 const CardLists = ({ cards, onCardClick }) => {
@@ -48,8 +52,10 @@ const CardLists = ({ cards, onCardClick }) => {
     tl.to(".preview", { opacity: 1, duration: 1.5, stagger: 0.25 });
   }, [cards])
   return (
-    <div className={listClass}>
-      {cards.map(card => <CardPreview key={card.id} onClick={()=>onCardClick(card)} previewMode="true" imageUrl={card.imageUrl}/>  )}
+    <div className={wrapper}>
+      <div className={listClass}>
+        {cards.map(card => <CardPreview key={card.id} onClick={()=>onCardClick(card)} previewMode="true" imageUrl={card.imageUrl}/>  )}
+      </div>
     </div>
   );
 };

@@ -14,7 +14,7 @@ export const cardsReducer = (state, action) => {
     case FETCH_ERROR:
       return { ...state, status: 'error', error: action.payload };
     case FETCHING_RANDOM: 
-      return { ...state, status: 'fetching', ctr: state.ctr + 1 };
+      return { ...state, status: 'randoming', ctr: state.ctr + 1 };
     case VIEW_CARD: 
       return {...state, cardDetail: action.payload}
     default:
