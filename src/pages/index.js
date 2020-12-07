@@ -15,7 +15,7 @@ const Home = () => {
   const context = useContext(MagicContext);
 
   useEffect(() => {
-    context.fetchCards()
+    context.fetchCards() // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
