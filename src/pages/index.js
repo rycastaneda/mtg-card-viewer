@@ -5,7 +5,7 @@ import MagicContext from '../context/MagicContext'
 import themes from "../utils/themes"
 import MtgLayout from "../layout/MtgLayout";
 import Button from "../components/Button";
-import Nav from "../components/Nav";
+import Toggle from "../components/Toggle";
 import CardLists from "../components/CardLists/index.js";
 import CardViewer from "../components/CardViewer";
 import Loader from "../components/Loader";
@@ -31,7 +31,6 @@ const Home = () => {
 
   return (
     <MtgLayout>
-      <Nav theme={theme} onToggle={setTheme} />
       {renderLoad(context.status, context.cards.length)}
       {context.status === 'error' && <div className="error"> {context.error}</div>}
       {context.cards.length !== 0 ?
@@ -48,6 +47,8 @@ const Home = () => {
               ) :
               'Show Random Card'}
           </Button>
+          <Toggle theme={theme} onToggle={setTheme} />
+
           </div>
         </Fragment> : null
       }
